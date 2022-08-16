@@ -113,7 +113,7 @@ defmodule TodoList.Todos do
   def toggle_item_by_id(todo_item_id) when is_binary(todo_item_id) or is_integer(todo_item_id) do
     case Repo.get(Item, todo_item_id) do
       nil ->
-        nil
+        {:ok, nil}
       %Item{} = item ->
         toggle_item(item)
     end
